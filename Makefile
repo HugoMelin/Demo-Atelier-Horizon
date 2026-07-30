@@ -18,7 +18,7 @@ up-front:
 
 up:
 	$(MAKE) docker-up
-	$(MAKE) code-front
+	code .
 	npm run dev
 	
 down: 
