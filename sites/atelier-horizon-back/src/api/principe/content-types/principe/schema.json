@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "principes",
+  "info": {
+    "singularName": "principe",
+    "pluralName": "principes",
+    "displayName": "Principe"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Icon": {
+      "type": "component",
+      "component": "shared.icon",
+      "repeatable": false
+    },
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

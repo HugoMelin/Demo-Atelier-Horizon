@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "methodologies",
+  "info": {
+    "singularName": "methodology",
+    "pluralName": "methodologies",
+    "displayName": "Methodology"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ordre": {
+      "type": "integer"
+    },
+    "Icon": {
+      "type": "component",
+      "component": "shared.icon",
+      "repeatable": false
+    },
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Soustitre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Details": {
+      "type": "component",
+      "component": "shared.liste-text",
+      "repeatable": true
+    },
+    "Livrable": {
+      "type": "text"
+    }
+  }
+}

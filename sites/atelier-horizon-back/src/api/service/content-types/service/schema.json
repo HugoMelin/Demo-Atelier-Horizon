@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ordre": {
+      "type": "integer",
+      "required": false
+    },
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Sous_titre": {
+      "type": "string"
+    },
+    "Prix": {
+      "type": "string",
+      "required": true
+    },
+    "Duree": {
+      "type": "string"
+    },
+    "Probleme": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Benefits": {
+      "type": "component",
+      "component": "shared.liste-text",
+      "repeatable": true
+    },
+    "Format": {
+      "type": "component",
+      "component": "shared.liste-text",
+      "repeatable": true
+    },
+    "Pour_qui": {
+      "type": "text"
+    },
+    "Mis_en_avant": {
+      "type": "boolean"
+    }
+  }
+}

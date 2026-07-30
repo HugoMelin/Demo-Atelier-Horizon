@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_tools",
+  "info": {
+    "displayName": "Tools"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "component",
+      "component": "shared.icon",
+      "repeatable": false,
+      "required": false
+    },
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    }
+  },
+  "config": {}
+}

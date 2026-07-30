@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_icons",
+  "info": {
+    "displayName": "Icon"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Lucid": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
