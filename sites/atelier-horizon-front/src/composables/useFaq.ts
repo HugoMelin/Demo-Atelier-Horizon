@@ -1,5 +1,7 @@
+import type { FaqSingleResponse } from '@/types'
+
 export const useFaq = () => {
-  const fetchAllFaq = async () => {
+  const fetchAllFaq = async (): Promise<FaqSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/faq?populate=*`);
       if (!response.ok) {

@@ -1,5 +1,7 @@
+import type { ToolSingleResponse } from '@/types'
+
 export const useTool = () => {
-  const fetchAllTools = async () => {
+  const fetchAllTools = async (): Promise<ToolSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/tool?populate%5BOutils%5D%5Bpopulate%5D%5BIcon%5D%5Bpopulate%5D=Image`);
       if (!response.ok) {

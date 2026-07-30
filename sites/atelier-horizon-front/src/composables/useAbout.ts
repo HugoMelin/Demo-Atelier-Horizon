@@ -1,5 +1,7 @@
+import type { AboutCollectionResponse, AboutSingleResponse } from '@/types'
+
 export const useAbout = () => {
-  const fetchAllAbout = async () => {
+  const fetchAllAbout = async (): Promise<AboutCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useAbout = () => {
     }
   };
 
-  const fetchAboutById = async (id: number) => {
+  const fetchAboutById = async (id: number): Promise<AboutSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts/${id}?populate=*`);
       if (!response.ok) {

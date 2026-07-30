@@ -1,5 +1,7 @@
+import type { ServiceCollectionResponse, ServiceSingleResponse } from '@/types'
+
 export const useService = () => {
-  const fetchAllServices = async () => {
+  const fetchAllServices = async (): Promise<ServiceCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/services?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useService = () => {
     }
   };
 
-  const fetchServiceById = async (id: number) => {
+  const fetchServiceById = async (id: number): Promise<ServiceSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/services/${id}?populate=*`);
       if (!response.ok) {

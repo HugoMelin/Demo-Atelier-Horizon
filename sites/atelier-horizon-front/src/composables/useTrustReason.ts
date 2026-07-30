@@ -1,5 +1,7 @@
+import type { TrustReasonCollectionResponse, TrustReasonSingleResponse } from '@/types'
+
 export const useTrustReason = () => {
-  const fetchAllTrustReasons = async () => {
+  const fetchAllTrustReasons = async (): Promise<TrustReasonCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useTrustReason = () => {
     }
   };
 
-  const fetchTrustReasonById = async (id: number) => {
+  const fetchTrustReasonById = async (id: number): Promise<TrustReasonSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons/${id}?populate=*`);
       if (!response.ok) {

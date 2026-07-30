@@ -1,5 +1,7 @@
+import type { TestimonialCollectionResponse, TestimonialSingleResponse } from '@/types'
+
 export const useTestimonial = () => {
-  const fetchAllTestimonials = async () => {
+  const fetchAllTestimonials = async (): Promise<TestimonialCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/testimonials?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useTestimonial = () => {
     }
   };
 
-  const fetchTestimonialById = async (id: number) => {
+  const fetchTestimonialById = async (id: number): Promise<TestimonialSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/testimonials/${id}?populate=*`);
       if (!response.ok) {

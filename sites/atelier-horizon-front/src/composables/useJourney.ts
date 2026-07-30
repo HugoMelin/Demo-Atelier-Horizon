@@ -1,5 +1,7 @@
+import type { JourneyCollectionResponse, JourneySingleResponse } from '@/types'
+
 export const useJourney = () => {
-  const fetchAllJourneys = async () => {
+  const fetchAllJourneys = async (): Promise<JourneyCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/journeys?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useJourney = () => {
     }
   };
 
-  const fetchJourneyById = async (id: number) => {
+  const fetchJourneyById = async (id: number): Promise<JourneySingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/journeys/${id}?populate=*`);
       if (!response.ok) {

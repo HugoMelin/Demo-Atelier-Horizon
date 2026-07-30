@@ -1,5 +1,7 @@
+import type { MethodologyCollectionResponse, MethodologySingleResponse } from '@/types'
+
 export const useMethodology = () => {
-  const fetchAllMethodologies = async () => {
+  const fetchAllMethodologies = async (): Promise<MethodologyCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const useMethodology = () => {
     }
   };
 
-  const fetchMethodologyById = async (id: number) => {
+  const fetchMethodologyById = async (id: number): Promise<MethodologySingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies/${id}?populate=*`);
       if (!response.ok) {

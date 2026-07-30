@@ -1,5 +1,7 @@
+import type { PrincipleCollectionResponse, PrincipleSingleResponse } from '@/types'
+
 export const usePrinciple = () => {
-  const fetchAllPrinciples = async () => {
+  const fetchAllPrinciples = async (): Promise<PrincipleCollectionResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/principes?populate=*`);
       if (!response.ok) {
@@ -11,7 +13,7 @@ export const usePrinciple = () => {
     }
   };
 
-  const fetchPrincipleById = async (id: number) => {
+  const fetchPrincipleById = async (id: number): Promise<PrincipleSingleResponse> => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/principes/${id}?populate=*`);
       if (!response.ok) {
