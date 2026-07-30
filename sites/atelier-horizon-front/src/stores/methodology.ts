@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useMethodology } from '@/composables/useMethodology'
 import type { MethodologyCollectionResponse, MethodologySingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const useMethodologyStore = defineStore('methodology', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

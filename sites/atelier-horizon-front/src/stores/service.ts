@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useService } from '@/composables/useService'
 import type { ServiceCollectionResponse, ServiceSingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const useServiceStore = defineStore('service', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+    fetchAll()
+  });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

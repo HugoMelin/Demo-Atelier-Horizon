@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useTrustReason } from '@/composables/useTrustReason'
 import type { TrustReasonCollectionResponse, TrustReasonSingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const useTrustReasonStore = defineStore('trustReason', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useTestimonial } from '@/composables/useTestimonial'
 import type { TestimonialCollectionResponse, TestimonialSingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const useTestimonialStore = defineStore('testimonial', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

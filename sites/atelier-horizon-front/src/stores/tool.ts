@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useTool } from '@/composables/useTool'
 import type { ToolSingleResponse } from '@/types'
@@ -24,6 +24,10 @@ export const useToolStore = defineStore('tool', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, loading, error, fetchAll }
 })

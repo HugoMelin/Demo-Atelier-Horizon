@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { usePrinciple } from '@/composables/usePrinciple'
 import type { PrincipleCollectionResponse, PrincipleSingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const usePrincipleStore = defineStore('principle', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

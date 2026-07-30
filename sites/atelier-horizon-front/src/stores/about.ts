@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useAbout } from '@/composables/useAbout'
 import type { AboutCollectionResponse, AboutSingleResponse } from '@/types'
@@ -40,6 +40,10 @@ export const useAboutStore = defineStore('about', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, item, loading, error, fetchAll, fetchById }
 })

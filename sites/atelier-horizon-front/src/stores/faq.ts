@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useFaq } from '@/composables/useFaq'
 import type { FaqSingleResponse } from '@/types'
@@ -24,6 +24,10 @@ export const useFaqStore = defineStore('faq', () => {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+      fetchAll()
+    });
 
   return { items, loading, error, fetchAll }
 })
