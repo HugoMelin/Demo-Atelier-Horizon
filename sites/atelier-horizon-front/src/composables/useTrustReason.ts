@@ -3,7 +3,7 @@ import type { TrustReasonCollectionResponse, TrustReasonSingleResponse } from '@
 export const useTrustReason = () => {
   const fetchAllTrustReasons = async (): Promise<TrustReasonCollectionResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch trust reason data: ${response.statusText}`);
       }
@@ -15,7 +15,7 @@ export const useTrustReason = () => {
 
   const fetchTrustReasonById = async (id: number): Promise<TrustReasonSingleResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons/${id}?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/trust-reasons/${id}?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch trust reason data by ID: ${response.statusText}`);
       }

@@ -3,7 +3,7 @@ import type { AboutCollectionResponse, AboutSingleResponse } from '@/types'
 export const useAbout = () => {
   const fetchAllAbout = async (): Promise<AboutCollectionResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch about data: ${response.statusText}`);
       }
@@ -15,7 +15,7 @@ export const useAbout = () => {
 
   const fetchAboutById = async (id: number): Promise<AboutSingleResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts/${id}?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/abouts/${id}?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch about data by ID: ${response.statusText}`);
       }

@@ -3,7 +3,7 @@ import type { MethodologyCollectionResponse, MethodologySingleResponse } from '@
 export const useMethodology = () => {
   const fetchAllMethodologies = async (): Promise<MethodologyCollectionResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies?populate[Icon][populate]=Image&populate[Details]=true`);
       if (!response.ok) {
         throw new Error(`Failed to fetch methodology data: ${response.statusText}`);
       }
@@ -15,7 +15,7 @@ export const useMethodology = () => {
 
   const fetchMethodologyById = async (id: number): Promise<MethodologySingleResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies/${id}?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/methodologies/${id}?populate[Icon][populate]=Image&populate[Details]=true`);
       if (!response.ok) {
         throw new Error(`Failed to fetch methodology data by ID: ${response.statusText}`);
       }

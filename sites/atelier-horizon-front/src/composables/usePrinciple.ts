@@ -3,7 +3,7 @@ import type { PrincipleCollectionResponse, PrincipleSingleResponse } from '@/typ
 export const usePrinciple = () => {
   const fetchAllPrinciples = async (): Promise<PrincipleCollectionResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/principes?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/principes?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch principle data: ${response.statusText}`);
       }
@@ -15,7 +15,7 @@ export const usePrinciple = () => {
 
   const fetchPrincipleById = async (id: number): Promise<PrincipleSingleResponse> => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/principes/${id}?populate=*`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/principes/${id}?populate[Icon][populate]=Image`);
       if (!response.ok) {
         throw new Error(`Failed to fetch principle data by ID: ${response.statusText}`);
       }
