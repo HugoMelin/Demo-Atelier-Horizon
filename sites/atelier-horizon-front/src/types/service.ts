@@ -1,3 +1,4 @@
+import type { IconBlock } from './icon'
 import type { ListTextBlock } from './listText'
 import type { RichTextBlock } from './richText'
 import type { StrapiCollectionResponse, StrapiSingleResponse } from './strapi'
@@ -6,6 +7,7 @@ export interface Service {
   id: number
   documentId: string
   Ordre: number | null
+  Icon: IconBlock | null
   Titre: string
   Sous_titre: string | null
   Prix: string

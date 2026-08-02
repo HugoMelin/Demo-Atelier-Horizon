@@ -51,6 +51,11 @@
     },
     "Mis_en_avant": {
       "type": "boolean"
+    },
+    "Icon": {
+      "type": "component",
+      "component": "shared.icon",
+      "repeatable": false
     }
   }
 }

@@ -674,6 +674,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     Description: Schema.Attribute.Blocks & Schema.Attribute.Required;
     Duree: Schema.Attribute.String;
     Format: Schema.Attribute.Component<'shared.liste-text', true>;
+    Icon: Schema.Attribute.Component<'shared.icon', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
