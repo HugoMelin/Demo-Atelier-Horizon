@@ -18,6 +18,11 @@ const router = createRouter({
       name: 'Services',
       component: () => import('../pages/ServicesPage.vue')
     },
+    {
+      path: '/methodology',
+      name: 'Methodology',
+      component: () => import('../pages/MethodPage.vue')
+    },
   ],
 })
 

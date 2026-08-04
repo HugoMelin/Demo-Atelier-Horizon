@@ -158,7 +158,7 @@ const navigateTo = (path: string) => router.push(path)
                     variant="outline"
                     size="lg"
                     class="flex-1 sm:flex-none"
-                    @click="navigateTo('/method')"
+                    @click="navigateTo('/methodology')"
                   >
                     Découvrir la méthode
                   </Button>
