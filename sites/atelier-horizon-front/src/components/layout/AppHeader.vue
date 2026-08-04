@@ -2,20 +2,16 @@
 import { Menu, X } from '@lucide/vue';
 import { ref } from 'vue';
 
+import { useNavigation } from '@/composables/useNavigation';
+
+const { menuItems } = useNavigation();
+
 const props = defineProps<{
   currentPage: string
   onNavigate: (page: string) => void
 }>();
 
 const mobileMenuOpen = ref(false);
-
-const menuItems = [
-  { name: 'Accueil', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Méthodologie', href: '/methodology' },
-  { name: 'Témoignages', href: '/testimonials' },
-  { name: 'Contact', href: '/contact' },
-];
 
 </script>
 

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { Mail, Phone, MapPin, ExternalLink } from '@lucide/vue';
+
+import { useNavigation } from '@/composables/useNavigation';
+
+const { menuItems } = useNavigation();
 </script>
 
 <template>
@@ -24,12 +28,9 @@ import { Mail, Phone, MapPin, ExternalLink } from '@lucide/vue';
         <div>
           <h4 class="font-semibold mb-4">Navigation</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">Accueil</a></li>
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">À propos</a></li>
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">Offres</a></li>
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">Méthode</a></li>
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">Témoignages</a></li>
-            <li><a href="#" class="hover:text-[#6B8E7A] transition-colors">Contact</a></li>
+            <li v-for="item in menuItems" :key="item.href">
+              <a :href="item.href" class="hover:text-[#6B8E7A] transition-colors">{{ item.name }}</a>
+            </li>
           </ul>
         </div>
 
