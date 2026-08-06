@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 
 import { AppHeader, AppFooter } from '@/components/layout'
+import DemoNoticeModal from '@/components/DemoNoticeModal.vue'
 import { useSeoStore } from '@/stores'
 
 const router = useRouter()
@@ -89,6 +90,7 @@ void seoStore.fetch().catch(() => undefined)
 </script>
 
 <template>
+  <DemoNoticeModal />
   <AppHeader :current-page="$route.path" :on-navigate="handleNavigate" />
   <main class="">
     <RouterView />
