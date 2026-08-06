@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import { Menu, X } from '@lucide/vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
 import { useNavigation } from '@/composables/useNavigation';
+import { useSeoStore } from '@/stores';
 
 const { menuItems } = useNavigation();
+const seoStore = useSeoStore();
+const { siteName } = storeToRefs(seoStore);
+
+const displayedSiteName = computed(() => siteName.value || 'Atelier Horizon');
+const siteInitials = computed(() =>
+  displayedSiteName.value
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase(),
+);
 
 const props = defineProps<{
   currentPage: string
@@ -25,9 +40,9 @@ const mobileMenuOpen = ref(false);
           class="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
           <div class="w-10 h-10 bg-[#0F172A] rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-xl">AH</span>
+            <span class="text-white font-bold text-xl">{{ siteInitials }}</span>
           </div>
-          <span class="text-xl font-semibold text-[#0F172A]">Atelier Horizon</span>
+          <span class="text-xl font-semibold text-[#0F172A]">{{ displayedSiteName }}</span>
         </button>
 
         <!-- Desktop Navigation -->
