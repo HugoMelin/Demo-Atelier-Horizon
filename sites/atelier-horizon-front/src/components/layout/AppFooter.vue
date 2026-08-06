@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { Mail, Phone, MapPin, ExternalLink } from '@lucide/vue';
+import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
+import { ExternalLink } from '@lucide/vue';
 
+import IconBlock from '@/components/blocks/IconBlock.vue';
 import { useNavigation } from '@/composables/useNavigation';
+import { useInfoStore } from '@/stores';
 
 const { menuItems } = useNavigation();
+const { items: infoResponse } = storeToRefs(useInfoStore());
+
+const contactInfo = computed(() =>
+  [...(infoResponse.value?.data ?? [])].sort((a, b) => (a.Ordre ?? 0) - (b.Ordre ?? 0)),
+);
 </script>
 
 <template>
@@ -38,23 +47,19 @@ const { menuItems } = useNavigation();
         <div>
           <h4 class="font-semibold mb-4">Contact</h4>
           <ul class="space-y-3 text-gray-400">
-            <li class="flex items-center space-x-3">
-              <a href="mailto:contact@atelier-horizon.fr" class="flex items-center space-x-3 hover:text-[#6B8E7A] transition-colors">
-                <Mail class="w-5 h-5 text-[#6B8E7A]" />
-                <span>contact@atelier-horizon.fr</span>
+            <li v-for="info in contactInfo" :key="info.documentId" class="flex items-center space-x-3">
+              <a
+                v-if="info.Lien"
+                :href="info.Lien"
+                class="flex items-center space-x-3 hover:text-[#6B8E7A] transition-colors"
+              >
+                <IconBlock :icon="info.Icon" class="w-5 h-5 text-[#6B8E7A]" />
+                <span>{{ info.Valeur }}</span>
               </a>
-            </li>
-            <li class="flex items-center space-x-3">
-              <a href="tel:+33612345678" class="flex items-center space-x-3 hover:text-[#6B8E7A] transition-colors">
-                <Phone class="w-5 h-5 text-[#6B8E7A]" />
-                <span>+33 6 12 34 56 78</span>
-              </a>
-            </li>
-            <li class="flex items-center space-x-3">
-              <a href="https://maps.app.goo.gl/5HEVpcXTER8r2Jde6" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 hover:text-[#6B8E7A] transition-colors">
-                <MapPin class="w-5 h-5 text-[#6B8E7A]" />
-                <span>Paris, France</span>
-              </a>
+              <div v-else class="flex items-center space-x-3">
+                <IconBlock :icon="info.Icon" class="w-5 h-5 text-[#6B8E7A]" />
+                <span>{{ info.Valeur }}</span>
+              </div>
             </li>
             <li class="flex items-center space-x-3 pt-2">
               <a
