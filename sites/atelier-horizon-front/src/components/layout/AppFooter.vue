@@ -63,9 +63,11 @@ const contactInfo = computed(() =>
             </li>
             <li class="flex items-center space-x-3 pt-2">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/torefi-agence-web/"
                 class="p-2 bg-white/10 rounded-lg hover:bg-[#6B8E7A] transition-colors"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <ExternalLink class="w-5 h-5" />
               </a>
