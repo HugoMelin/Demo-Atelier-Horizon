@@ -109,7 +109,7 @@ const revealTransition = {
               size="lg"
               variant="outline"
               type="button"
-              @click="navigateTo('/services')"
+              @click="navigateTo('/offers')"
               class="bg-transparent border-white text-white hover:bg-white hover:text-[#0F172A]"
             >
               Découvrir les offres

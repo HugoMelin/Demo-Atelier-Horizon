@@ -298,7 +298,7 @@ const navigateTo = (path: string) => router.push(path)
             <Button variant="secondary" size="lg" type="button" @click="navigateTo('/contact')">
               Réserver un appel découverte
             </Button>
-            <Button variant="outline" size="lg" type="button" @click="navigateTo('/services')">
+            <Button variant="outline" size="lg" type="button" @click="navigateTo('/offers')">
               Voir les offres
             </Button>
           </div>
